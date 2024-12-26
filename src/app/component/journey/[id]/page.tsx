@@ -144,74 +144,85 @@ const JourneyDetails = ({ params }: { params: { id: string } }) => {
       </header>
 
       <div className="container mx-auto py-12 px-6">
-        <h1 className="text-4xl font-mono font-bold text-gray-800">{product.title}</h1>
-        <div className="mt-6 flex items-center gap-8">
-          {/* Image Section */}
-          <div className="w-1/2 max-w-[400px] p-4 bg-white border shadow-md rounded-md">
-            <Image
-              src={product.image}
-              alt={product.title}
-              width={400}
-              height={267}
-              className="w-full h-auto object-cover"
-            />
-          </div>
+  <h1 className="text-4xl font-mono font-bold text-gray-800 text-center">
+    {product.title}
+  </h1>
 
-          {/* Description Section */}
-          <div className="w-1/2">
-            <p className="text-lg mt-6 font-serif">{product.description}</p>
-          </div>
-        </div>
-      </div>
+  {/* Responsive Layout for Image and Description */}
+  <div className="mt-6 flex flex-col lg:flex-row items-center gap-8">
+    {/* Image Section */}
+    <div className="w-full lg:w-1/2 max-w-[400px] p-4 bg-white border shadow-md rounded-md">
+      <Image
+        src={product.image}
+        alt={product.title}
+        width={400}
+        height={267}
+        className="w-full h-auto object-cover"
+      />
+    </div>
 
-      {/* Comment Section */}
-      <div className="mt-12 mb-[50px] flex justify-center">
-        <div className="w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">Comments</h2>
-          <div className="mt-4">
-            <textarea
-              value={newComment}
-              onChange={(e) => setNewComment(e.target.value)}
-              className="w-full p-2 border rounded-md"
-              placeholder="Add a comment"
-            />
+    {/* Description Section */}
+    <div className="w-full lg:w-1/2">
+      <p className="text-lg mt-6 lg:mt-0 font-serif text-justify">
+        {product.description}
+      </p>
+    </div>
+  </div>
+</div>
+    {/* Comment Section */}
+<div className="mt-12 mb-[50px] flex justify-center px-4 sm:px-6">
+  <div className="w-full max-w-lg sm:max-w-xl lg:max-w-2xl">
+    <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center">
+      Comments
+    </h2>
+    <div className="mt-4">
+      <textarea
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
+        className="w-full p-2 border rounded-md text-sm sm:text-base"
+        placeholder="Add a comment"
+      />
+      <button
+        onClick={handleAddComment}
+        className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md w-full sm:w-auto"
+      >
+        Add Comment
+      </button>
+    </div>
+
+    <div className="mt-8 space-y-4">
+      {comments.map((comment) => (
+        <div
+          key={comment.id}
+          className="border p-4 rounded-md text-sm sm:text-base"
+        >
+          {/* Buttons moved to the top of the comment box */}
+          <div className="flex justify-between items-center mb-2">
             <button
-              onClick={handleAddComment}
-              className="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md"
+              onClick={() =>
+                handleEditComment(
+                  comment.id,
+                  prompt("Edit comment:", comment.text) || comment.text
+                )
+              }
+              className="text-yellow-500 text-xs sm:text-sm"
             >
-              Add Comment
+              Edit
+            </button>
+            <button
+              onClick={() => handleDeleteComment(comment.id)}
+              className="text-red-500 text-xs sm:text-sm"
+            >
+              Delete
             </button>
           </div>
-
-          <div className="mt-8 space-y-4">
-            {comments.map((comment) => (
-              <div key={comment.id} className="border p-4 rounded-md">
-                {/* Buttons moved to the top of the comment box */}
-                <div className="flex justify-between mb-2">
-                  <button
-                    onClick={() =>
-                      handleEditComment(
-                        comment.id,
-                        prompt("Edit comment:", comment.text) || comment.text
-                      )
-                    }
-                    className="text-yellow-500"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => handleDeleteComment(comment.id)}
-                    className="text-red-500"
-                  >
-                    Delete
-                  </button>
-                </div>
-                <p>{comment.text}</p>
-              </div>
-            ))}
-          </div>
+          <p>{comment.text}</p>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
+
 
 <footer className="bg-slate-800 text-white py-8">
   <div className="container mx-auto text-center px-4">

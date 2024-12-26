@@ -8,7 +8,7 @@ const Home: React.FC = () =>  {
       <Hero
   title="Explore the World"
   subtitle="Discover new places and make memories"
-  backgroundImage="/gk.jpeg"
+  backgroundImage="/pak.jpeg"
   primarybuttonLink="/component/blog"
   secondarybuttonLink="/component/journey"
   primaryButtonText="Start Your Adventure"

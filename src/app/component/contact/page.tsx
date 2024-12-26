@@ -1,24 +1,49 @@
+'use client'
+
 import { BiWorld } from "react-icons/bi";
 import Link from "next/link";
+import { useState } from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 export default function Contact() {
+  const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleMenu = () => setIsOpen(!isOpen);
   return (
     <div>
-      <header className="text-gray-600 body-font">
+       <header className="text-gray-600 body-font">
         <div className="flex flex-col md:flex-row h-auto md:h-[50px] bg-slate-800 justify-between items-center p-5 md:p-10 sticky top-0 z-50">
-          {/* Logo Section */}
-          <div className="flex flex-row gap-4 items-center w-full md:w-auto">
-            <div className="text-white">
-              <BiWorld className="w-6 h-6 md:w-8 md:h-8" />
+          
+          {/* Logo and Hamburger Section */}
+          <div className="flex flex-row items-center justify-between w-full md:w-auto">
+            {/* Logo */}
+            <div className="flex gap-4 items-center">
+              <div className="text-white">
+                <BiWorld className="w-6 h-6 md:w-8 md:h-8" />
+              </div>
+              <div className="flex text-[20px] md:text-[30px] font-bold text-white items-center">
+                Travel All Around
+              </div>
             </div>
-            <div className="flex text-[20px] md:text-[30px] font-bold text-white items-center">
-              Travel All Around
+
+            {/* Hamburger Icon for Mobile, placed on the right side */}
+            <div className="md:hidden flex items-center">
+              <button onClick={toggleMenu}>
+                <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+                  <div className="w-6 h-1 bg-white"></div>
+                  <div className="w-6 h-1 bg-white"></div>
+                  <div className="w-6 h-1 bg-white"></div>
+                </div>
+              </button>
             </div>
           </div>
 
           {/* Navigation */}
-          <nav className="md:ml-auto flex flex-col md:flex-row items-center text-base justify-center mt-4 md:mt-0 w-full md:w-auto">
+          <nav
+            className={`${
+              isOpen ? "block" : "hidden"
+            } md:block md:ml-auto flex flex-col md:flex-row items-center text-base justify-center mt-4 md:mt-0 w-full md:w-auto`}
+          >
             <ul className="flex flex-col md:flex-row gap-4 w-full md:w-auto text-center md:text-left">
               <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/">Home</Link>
@@ -95,7 +120,6 @@ export default function Contact() {
                 id="message"
                 name="message"
                 className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-                defaultValue={""}
               />
             </div>
             <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
@@ -108,36 +132,32 @@ export default function Contact() {
         </div>
       </section>
 
-  <footer className="bg-slate-800 text-white py-8">
-  <div className="container mx-auto text-center px-4">
-    
-    {/* Logo Section */}
-    <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-4">
-      <div className="text-white">
-        <BiWorld className="w-6 h-6 md:w-8 md:h-8" />
-      </div>
-      <div className="flex text-[20px] md:text-[30px] font-bold text-white items-center">
-        Travel All Around
-      </div>
-    </div>
+      <footer className="bg-slate-800 text-white py-8">
+        <div className="container mx-auto text-center px-4">
+          {/* Logo Section */}
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-4">
+            <div className="text-white">
+              <BiWorld className="w-6 h-6 md:w-8 md:h-8" />
+            </div>
+            <div className="flex text-[20px] md:text-[30px] font-bold text-white items-center">
+              Travel All Around
+            </div>
+          </div>
 
-    <p className="text-2xl mt-2 font-bold">Stay In Touch!</p>
-    
-    <div className="flex justify-center gap-6 mt-4 mb-4">
-      <FaFacebook className="text-2xl hover:opacity-80" />
-      <FaTwitter className="text-2xl hover:opacity-80" />
-      <FaInstagram className="text-2xl hover:opacity-80" />
-      <FaLinkedin className="text-2xl hover:opacity-80" />
-    </div>
+          <p className="text-2xl mt-2 font-bold">Stay In Touch!</p>
 
-    {/* Footer Bottom Section */}
-    <p className="text-sm text-gray-300">
-      &copy; {new Date().getFullYear()} All rights reserved.
-    </p>
+          <div className="flex justify-center gap-6 mt-4 mb-4">
+            <FaFacebook className="text-2xl hover:opacity-80" />
+            <FaTwitter className="text-2xl hover:opacity-80" />
+            <FaInstagram className="text-2xl hover:opacity-80" />
+            <FaLinkedin className="text-2xl hover:opacity-80" />
+          </div>
 
-  </div>
-</footer>
-
+          <p className="text-sm text-gray-300">
+            &copy; {new Date().getFullYear()} All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

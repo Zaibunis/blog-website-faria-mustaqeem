@@ -1,8 +1,15 @@
+'use client'
+
 import { BiWorld } from "react-icons/bi";
 import Link from "next/link";
+import {useState} from "react"
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export default function Journey() {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const toggleMenu = () => setIsOpen(!isOpen);
+  
   const products = [
     {
       id: 1,
@@ -48,39 +55,59 @@ export default function Journey() {
   return (
     <div>
       {/* Header */}
-      <header className="bg-slate-800 sticky top-0 z-50 p-4 md:p-6">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-4">
-            <BiWorld className="text-white w-6 h-6 md:w-8 md:h-8" />
-            <h1 className="text-white text-lg md:text-2xl font-bold">
-              Travel All Around
-            </h1>
+      <header className="text-gray-600 body-font">
+        <div className="flex flex-col md:flex-row h-auto md:h-[50px] bg-slate-800 justify-between items-center p-5 md:p-10 sticky top-0 z-50">
+          
+          {/* Logo and Hamburger Section */}
+          <div className="flex flex-row items-center justify-between w-full md:w-auto">
+            {/* Logo */}
+            <div className="flex gap-4 items-center">
+              <div className="text-white">
+                <BiWorld className="w-6 h-6 md:w-8 md:h-8" />
+              </div>
+              <div className="flex text-[20px] md:text-[30px] font-bold text-white items-center">
+                Travel All Around
+              </div>
+            </div>
+
+            {/* Hamburger Icon for Mobile, placed on the right side */}
+            <div className="md:hidden flex items-center">
+              <button onClick={toggleMenu}>
+                <div className="w-6 h-6 flex flex-col justify-between items-center space-y-1">
+                  <div className="w-6 h-1 bg-white"></div>
+                  <div className="w-6 h-1 bg-white"></div>
+                  <div className="w-6 h-1 bg-white"></div>
+                </div>
+              </button>
+            </div>
           </div>
 
           {/* Navigation */}
-          <nav>
-            <ul className="flex flex-wrap justify-center md:flex-nowrap gap-4 text-white">
-              <li className="hover:text-orange-500">
+          <nav
+            className={`${
+              isOpen ? "block" : "hidden"
+            } md:block md:ml-auto flex flex-col md:flex-row items-center text-base justify-center mt-4 md:mt-0 w-full md:w-auto`}
+          >
+            <ul className="flex flex-col md:flex-row gap-4 w-full md:w-auto text-center md:text-left">
+              <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/">Home</Link>
               </li>
-              <li className="hover:text-orange-500">
+              <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/component/blog">Blog</Link>
               </li>
-              <li className="hover:text-orange-500">
+              <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/component/about">About</Link>
               </li>
-              <li className="hover:text-orange-500">
+              <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/component/contact">Contact</Link>
               </li>
-              <li className="hover:text-orange-500">
+              <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/component/journey">Journey</Link>
               </li>
             </ul>
           </nav>
         </div>
       </header>
-
       {/* Main Content */}
       <main className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-12">
         <div className="text-center mb-12">
