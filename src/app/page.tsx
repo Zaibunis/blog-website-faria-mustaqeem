@@ -9,7 +9,8 @@ const Home: React.FC = () =>  {
   title="Explore the World"
   subtitle="Discover new places and make memories"
   backgroundImage="/gk.jpeg"
-  buttonLink="/component/blog"
+  primarybuttonLink="/component/blog"
+  secondarybuttonLink="/component/journey"
   primaryButtonText="Start Your Adventure"
   secondaryButtonText="More Journeys"
 />

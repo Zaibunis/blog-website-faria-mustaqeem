@@ -8,8 +8,8 @@ type HeroProps = {
   title: string;
   subtitle: string;
   backgroundImage: string;
-  
-  buttonLink: string;
+  primarybuttonLink:string
+  secondarybuttonLink:string
   primaryButtonText: string;
   secondaryButtonText: string;
 };
@@ -18,7 +18,8 @@ const Hero: React.FC<HeroProps> = ({
   title,
   subtitle,
   backgroundImage,
-  buttonLink,
+  primarybuttonLink,
+  secondarybuttonLink,
   primaryButtonText,
   secondaryButtonText,
 }) => {
@@ -45,7 +46,7 @@ const Hero: React.FC<HeroProps> = ({
           </p>
 
           {/* Button */}
-          <Link href={buttonLink}>
+          <Link href={primarybuttonLink}>
             <button className="mt-5 px-6 py-3 bg-orange-500 text-white text-lg rounded-md hover:bg-orange-600 transition duration-300">
               { primaryButtonText}
             </button>
@@ -53,116 +54,116 @@ const Hero: React.FC<HeroProps> = ({
         </div>
       </div>
 
-      <section className="text-gray-600  body-font">
-      <h1 className=" ml-[610px] mt-[50px] text-5xl font-extrabold title-font mb-4 text-gray-900">
+      <section className="text-gray-600 body-font">
+      <h1 className="ml-[610px] mt-[50px] text-5xl font-extrabold title-font mb-4 text-gray-900">
         DETAIL
       </h1>
-  <div className="container px-5 py-24 mx-auto flex flex-wrap">
-    <div className="lg:w-2/3 mx-auto">
-      <div className="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
-        <Image
-          alt="gallery"
-          width={820}
-          height={340}
-          className="w-full object-cover h-full object-center block opacity-90 absolute inset-0"
-          src="/lon.jpeg"
-        />
-        <div className="text-center relative z-10 w-full">
-          <h2 className="text-2xl text-white font-bold title-font mb-2">
-             TRAVEL BLOG
-          </h2>
-         
-          <a className="mt-3 underline  text-white inline-flex items-center">
-            Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              className="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div className="flex flex-wrap -mx-2">
-  <div className="px-2 w-1/2">
-    <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
-      
-      
-      <Image
-        alt="gallery"
-        width={542}
-        height={460}
-        className="w-full object-cover h-full object-center block opacity-80 absolute inset-0"
-        src="/swat.jpeg"
-      />
-      
-      <div className="text-center relative z-10 w-full">
-        <h2 className="text-xl text-gray-900 font-bold title-font mb-1">
-         ABOUT JOURNEY
-        </h2>
-        
-        {/* Add margin-top to the link */}
-        <a className="mt-0 underline font-medium text-blue-950 inline-flex items-center">
-          Learn More
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            className="w-4 h-4 ml-2"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-        <div className="px-2 w-1/2">
-          <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+      <div className="container px-5 py-24 mx-auto flex flex-wrap">
+        <div className="lg:w-2/3 mx-auto">
+          <div className="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
             <Image
               alt="gallery"
-              width={542}
-              height={420}
+              width={820}
+              height={340}
               className="w-full object-cover h-full object-center block opacity-90 absolute inset-0"
-              src="/wa.jpeg"
+              src="/lon.jpeg"
             />
             <div className="text-center relative z-10 w-full">
-            <h2 className="text-2xl text-gray-900 font-bold title-font mb-1">
-             ABOUT TRAVEL
-          </h2>
-              
-              <a className="mt-1 underline text-indigo-900 inline-flex items-center">
-                Learn More
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+              <h2 className="text-2xl text-white font-bold title-font mb-2">
+                TRAVEL BLOG
+              </h2>
+              {/* Use legacyBehavior to keep <a> tag */}
+              <Link href="/component/blog" legacyBehavior>
+                <a className="mt-3 underline text-white inline-flex items-center">
+                  Learn More
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    className="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-wrap -mx-2">
+            <div className="px-2 w-1/2">
+              <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+                <Image
+                  alt="gallery"
+                  width={542}
+                  height={460}
+                  className="w-full object-cover h-full object-center block opacity-80 absolute inset-0"
+                  src="/swat.jpeg"
+                />
+                <div className="text-center relative z-10 w-full">
+                  <h2 className="text-xl text-gray-900 font-bold title-font mb-1">
+                    ABOUT JOURNEY
+                  </h2>
+                  {/* Use legacyBehavior to keep <a> tag */}
+                  <Link href="/component/journey" legacyBehavior>
+                    <a className="mt-0 underline font-medium text-blue-950 inline-flex items-center">
+                      Learn More
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="px-2 w-1/2">
+              <div className="flex flex-wrap w-full bg-gray-100 sm:py-24 py-16 sm:px-10 px-6 relative">
+                <Image
+                  alt="gallery"
+                  width={542}
+                  height={420}
+                  className="w-full object-cover h-full object-center block opacity-90 absolute inset-0"
+                  src="/wa.jpeg"
+                />
+                <div className="text-center relative z-10 w-full">
+                  <h2 className="text-2xl text-gray-900 font-bold title-font mb-1">
+                    ABOUT TRAVEL
+                  </h2>
+                  {/* Use legacyBehavior to keep <a> tag */}
+                  <Link href="/component/about" legacyBehavior>
+                    <a className="mt-1 underline text-indigo-900 inline-flex items-center">
+                      Learn More
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        className="w-4 h-4 ml-2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section className="text-gray-600 body-font">
+    </section>
+<section className="text-gray-600 body-font mt-0">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
     <h1 className=" ml-[50px] mt-[50px] text-5xl font-extrabold title-font mb-4 text-gray-900">
@@ -280,42 +281,42 @@ const Hero: React.FC<HeroProps> = ({
             
 
             {/* Secondary Button */}
-            <Link href={buttonLink}>
+            <Link href={secondarybuttonLink}>
               <button className="px-6 py-3 bg-orange-500 ml-[590px] mb-[50px] text-white text-lg rounded-md hover:bg-gray-600 transition duration-300">
                 {secondaryButtonText}
               </button>
             </Link>
           </div>
-
           <div
-      className="relative w-full h-[500px] bg-cover bg-center "
-      style={{
-        backgroundImage: "url('/swat.jpeg')", // Replace with the path to your image in the public folder
-      }}
-    >
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+  className="relative w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] bg-cover bg-center"
+  style={{
+    backgroundImage: "url('/swat.jpeg')", // Replace with the path to your image in the public folder
+  }}
+>
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-full text-white px-6">
-        <h1 className="text-3xl md:text-5xl font-bold text-center">
-          Get Connected
-        </h1>
-        <p className="mt-4 text-lg md:text-xl text-center">
-        Got an idea or something exciting to share? Don’t hesitate to get in touch. 
-        </p>
-        <p className="mt-2 text-base md:text-lg text-center">
-        I’d love to hear your stories, explore new opportunities, and create something amazing together!
-        </p>
+  {/* Content */}
+  <div className="relative z-10 flex flex-col justify-center items-center h-full text-white px-4 sm:px-8 md:px-16">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center leading-snug">
+      Get Connected
+    </h1>
+    <p className="mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-center max-w-2xl">
+      Got an idea or something exciting to share? Don’t hesitate to get in touch.
+    </p>
+    <p className="mt-2 text-xs sm:text-sm md:text-base lg:text-lg text-center max-w-2xl">
+      I’d love to hear your stories, explore new opportunities, and create something amazing together!
+    </p>
 
-        {/* Button */}
-        <Link href="/component/contact">
-        <button className="mt-6 px-6 py-3 bg-orange-500 text-white text-lg rounded-md hover:bg-orange-600 transition duration-300">
-          Contact Me
-        </button>
-        </Link>
-      </div>
-    </div>
+    {/* Button */}
+    <Link href="/component/contact">
+      <button className="mt-6 px-4 py-2 sm:px-6 sm:py-3 bg-orange-500 text-white text-sm sm:text-base md:text-lg rounded-md hover:bg-orange-600 transition duration-300">
+        Contact Me
+      </button>
+    </Link>
+  </div>
+</div>
+
           
   <footer className="bg-slate-800 text-white py-8">
   <div className="container mx-auto text-center px-4">

@@ -65,13 +65,13 @@ export default function About() {
           </div>
           <div className="flex flex-wrap">
             {/* Image Gallery */}
-            <div className="flex flex-wrap w-full md:w-1/2">
+            <div className="flex  flex-wrap w-full md:w-1/2">
               <div className="md:p-2 p-1 w-1/2">
                 <Image
                   alt="gallery"
                   width={500}
                   height={300}
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/paris.jpeg"
                 />
               </div>
@@ -80,7 +80,7 @@ export default function About() {
                   alt="gallery"
                   width={501}
                   height={301}
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/turkey.jpeg"
                 />
               </div>
@@ -89,7 +89,7 @@ export default function About() {
                   alt="gallery"
                   width={600}
                   height={360}
-                  className="w-full h-full object-cover object-center block"
+                  className="w-full h-full object-cover object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/makkah.jpeg"
                 />
               </div>
@@ -100,7 +100,7 @@ export default function About() {
                   alt="gallery"
                   width={601}
                   height={361}
-                  className="w-full h-full object-cover object-center block"
+                  className="w-full h-full object-cover object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/new zealand.jpeg"
                 />
               </div>
@@ -109,7 +109,7 @@ export default function About() {
                   alt="gallery"
                   width={502}
                   height={302}
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/america.jpeg"
                 />
               </div>
@@ -118,7 +118,7 @@ export default function About() {
                   alt="gallery"
                   width={503}
                   height={303}
-                  className="w-full object-cover h-full object-center block"
+                  className="w-full object-cover h-full object-center block transition-all transform hover:scale-110 rounded-lg"
                   src="/palestine.jpeg"
                 />
               </div>
