@@ -100,6 +100,9 @@ export default function Blog() {
               <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/contact">Contact</Link>
               </li>
+              <li className="mr-5 hover:text-orange-500 text-white">
+                <Link href="/component/journey">Journey</Link>
+              </li>
             </ul>
           </nav>
         </div>
@@ -163,6 +166,8 @@ export default function Blog() {
                 </div>
               </div>
             ))}
+            
+           
           </div>
         </div>
       </section>

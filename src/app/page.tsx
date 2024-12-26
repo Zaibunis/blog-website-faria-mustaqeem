@@ -6,13 +6,13 @@ const Home: React.FC = () =>  {
     <div>
       <Navbar />
       <Hero
-        title="Explore the World"
-        subtitle="Discover new places and make memories"
-        backgroundImage="/gk.jpeg" // Replace with your image URL
-        buttonText="Start Your Adventure"
-        buttonLink="/component/blog" // Link to the next page
-      />
-
+  title="Explore the World"
+  subtitle="Discover new places and make memories"
+  backgroundImage="/gk.jpeg"
+  buttonLink="/component/blog"
+  primaryButtonText="Start Your Adventure"
+  secondaryButtonText="More Journeys"
+/>
       
     </div>
   )
