@@ -21,7 +21,7 @@ export default function Contact() {
           <nav className="md:ml-auto flex flex-col md:flex-row items-center text-base justify-center mt-4 md:mt-0 w-full md:w-auto">
             <ul className="flex flex-col md:flex-row gap-4 w-full md:w-auto text-center md:text-left">
               <li className="mr-5 hover:text-orange-500 text-white">
-                <Link href="/component">Home</Link>
+                <Link href="/">Home</Link>
               </li>
               <li className="mr-5 hover:text-orange-500 text-white">
                 <Link href="/component/blog">Blog</Link>
